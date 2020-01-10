@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bit.springBoard2.dao.IDao;
 
@@ -51,7 +52,8 @@ public class BoardController {
 		return "redirect:list";
 	}
 	
-	@RequestMapping(value="modify")		// 변수명 같으면 request 로 받지 않아도 됨  (post , get 둘 다 상관 없음
+																// 변수명 같으면 request 로 받지 않아도 됨  (post , get 둘 다 상관 없음
+	@RequestMapping(value="modify", method=RequestMethod.POST)	// POST는 선언을 해주어야 url 조작을 통한 GET 방식으로 해당 controller method 접근을 차단한다.
 	public String modify(int bid, String bname, String btitle, String bcontent) {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		dao.modifyDao(bid, bname, btitle, bcontent);
