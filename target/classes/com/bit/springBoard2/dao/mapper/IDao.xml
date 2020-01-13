@@ -4,7 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.bit.springBoard2.dao.IDao">
-	<!--  bid 값을 통해 IDao.java 의  method 들과 연결된다. -->
+	<!--  id 값을 통해 IDao.java 의  method 들과 연결된다. -->
 
 	<select id="listDao" resultType="com.bit.springBoard2.dto.BoardDto">
 		select * from tblBoard order by bid desc
